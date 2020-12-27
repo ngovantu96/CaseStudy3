@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Http\Repositories\CategoryRepositories\CategoryRepositoryInterface;
+use App\Http\Repo\CategoryRepo\CategoryRepositoryInterface;
 use App\Http\Requests\CategoryRequets;
 use Illuminate\Http\Request;
 
@@ -15,6 +14,7 @@ class CategoryController extends Controller
     }
     public function index(){
         $categories = $this->categoryRepository->getAll();
+        dd($categories);
         return view('admin.category.list',compact('categories'));
     }
     public function store(CategoryRequets $requets){
